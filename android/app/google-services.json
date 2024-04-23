@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "391361219183",
+    "firebase_url": "https://airbnb-ce515.firebaseio.com",
+    "project_id": "airbnb-ce515",
+    "storage_bucket": "airbnb-ce515.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391361219183:android:f8b218644569378a239b9a",
+        "android_client_info": {
+          "package_name": "com.example.art_portfolio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391361219183-gnctmsv920d32tufstujunifupp3r6ei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWyAsh-cPXQFihQAZ7UTL-xWw3QWu99JM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391361219183-gnctmsv920d32tufstujunifupp3r6ei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

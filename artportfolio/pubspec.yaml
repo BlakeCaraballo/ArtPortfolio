@@ -1,0 +1,50 @@
+name: artportfolio
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/picaso1.jpg
+    - assets/images/picaso2.jpg
+    - assets/images/picaso3.png
+    - assets/images/picaso_self.jpg
+
+    - assets/images/vangogh1.jpg
+    - assets/images/vangogh2.jpg
+    - assets/images/vangogh3.jpg
+
+    - assets/images/rembrant1.jpg
+    - assets/images/rembrant2.jpg
+    - assets/images/rembrant3.jpg
+    - assets/images/rembrant_self.jpg
+
+    - assets/images/paintings.jpg
+    - assets/images/photography.jpg
+    - assets/images/sculpture.jpg
+
+    - assets/images/adams1.jpg
+    - assets/images/adams2.jpg
+    - assets/images/adams3.jpg
+
+    - assets/images/mccurry1.jpg
+    - assets/images/mccurry2.jpg
+    - assets/images/mccurry3.jpg
+
+    
+
+

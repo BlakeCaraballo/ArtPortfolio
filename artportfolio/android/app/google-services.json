@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "33939497223",
+    "project_id": "artportfolio-153f3",
+    "storage_bucket": "artportfolio-153f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33939497223:android:c086684c1150198f64e5a2",
+        "android_client_info": {
+          "package_name": "com.example.artportfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWticzEq8rkZtKkABwguLUrqjmgt9wBmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

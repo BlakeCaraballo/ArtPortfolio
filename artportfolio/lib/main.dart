@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
-import './screens/home_screen.dart';
+import './screens/login_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(ArtfolioApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter bindings are initialized
+  
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    runApp(ArtfolioApp());
+  } catch (e) {
+    print('Error initializing Firebase: $e');
+  }
 }
 
 class ArtfolioApp extends StatelessWidget {
@@ -18,7 +29,7 @@ class ArtfolioApp extends StatelessWidget {
           bodyText1: TextStyle(color: Colors.white), // Example
         ),
       ),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }

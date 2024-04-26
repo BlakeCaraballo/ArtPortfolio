@@ -11,19 +11,19 @@ final List<Artwork> artworks = [
   Artwork(
     name: 'Girl Before a Mirror',
     imagePath: 'assets/images/picaso1.jpg',
-    artistName: 'Pablo Picasso',
+    artistName: '',
     category: 'Painting',
   ),
     Artwork(
     name: 'The Weeping Woman',
     imagePath: 'assets/images/picaso2.jpg',
-    artistName: 'Pablo Picasso',
+    artistName: '',
     category: 'Painting',
   ),
     Artwork(
     name: 'Weird Guy',
     imagePath: 'assets/images/picaso3.png',
-    artistName: 'Pablo Picasso',
+    artistName: '',
     category: 'Painting',
   ),
   Artwork(
@@ -97,6 +97,24 @@ final List<Artwork> artworks = [
     imagePath: 'assets/images/mccurry3.jpg',
     artistName: 'McCurry',
     category: 'Photography',
+  ),
+    Artwork(
+    name: 'Photo 6',
+    imagePath: 'assets/images/mccurry3.jpg',
+    artistName: 'McCurry',
+    category: 'Sculpture',
+  ),
+    Artwork(
+    name: 'Photo 6',
+    imagePath: 'assets/images/mccurry3.jpg',
+    artistName: 'McCurry',
+    category: 'Sculpture',
+  ),
+    Artwork(
+    name: 'Photo 6',
+    imagePath: 'assets/images/mccurry3.jpg',
+    artistName: 'McCurry',
+    category: 'Sculpture',
   ),
   // Add more artworks as needed
 ];

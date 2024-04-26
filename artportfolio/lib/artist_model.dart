@@ -4,12 +4,14 @@ class Artist {
   final String photoPath;
   final List<String> gallery;
   final String category;
+  final List<String> featuredArtwork;
 
   Artist({
   required this.name, 
   required this.biography, 
   required this.photoPath, 
   required this.gallery,
-  required this.category
+  required this.category,
+  required this.featuredArtwork
   });
 }

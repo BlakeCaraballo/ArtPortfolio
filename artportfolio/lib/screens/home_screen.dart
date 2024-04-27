@@ -10,8 +10,12 @@ import '../category_data.dart';
 import './category_gallery.dart';
 import 'login_screen.dart'; // Import the LoginScreen
 import 'profile_screen.dart';
+import '../artwork_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance; // Initialize Firebase Authentication
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +27,21 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: IconButton(
+              icon: Icon(Icons.logout), // Change icon to Logout
+              onPressed: () async {
+                // Logout functionality
+                await _auth.signOut(); // Sign out from Firebase
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              color: Colors.white, // Set button color to white
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: IconButton(
               icon: Icon(Icons.person),
               onPressed: () {
                 Navigator.push(
@@ -30,18 +49,7 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => ProfileScreen()),
                 );
               },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0), // Adjust the padding here
-            child: IconButton(
-              icon: Icon(Icons.login),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
-              },
+              color: Colors.white, // Set button color to white
             ),
           ),
         ],
@@ -51,11 +59,12 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 20.0),
         children: [
           _buildSectionTitle('Featured Artworks'),
-          _buildFeaturedArtworks(),
+          _buildFeaturedArtworks(context),
           _buildSectionTitle('Artist Highlights'),
           _buildArtistHighlights(context),
           _buildSectionTitle('Categories'),
           _buildCategories(),
+          SizedBox(height: 50.0,)
         ],
       ),
     );
@@ -75,50 +84,57 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
- Widget _buildFeaturedArtworks() {
-  return Container(
-    height: 200.0,
-    margin: EdgeInsets.symmetric(horizontal: 16.0),
-    decoration: BoxDecoration(
-      color: Color(0xFF50727B),
-      borderRadius: BorderRadius.circular(10.0), // Rounded corners
-    ),
-    child: SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          _buildArtworkItem('assets/images/picaso1.jpg'),
-          _buildArtworkItem('assets/images/picaso2.jpg'),
-          _buildArtworkItem('assets/images/picaso3.png'),
-
-        ],
+Widget _buildFeaturedArtworks(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      // Navigate to the FeaturedArtworksScreen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => FeaturedArtworksScreen()),
+      );
+    },
+    child: Container(
+      height: 200.0, // Adjust the height as needed
+      width: double.infinity, // Allow the container to fill the width
+      margin: EdgeInsets.symmetric(horizontal: 16.0),
+      decoration: BoxDecoration(
+        color: Color(0xFF50727B),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Image.asset(
+          'assets/images/picaso2.jpg', // Replace with your featured artwork image
+          fit: BoxFit.cover,
+        ),
       ),
     ),
   );
 }
 
-  Widget _buildArtworkItem(String imagePath) {
-    return Container(
-      margin: EdgeInsets.all(8.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8.0),
-        child: Image.asset(
-          imagePath,
-          width: 150.0,
-          height: 150.0,
-          fit: BoxFit.cover,
-        ),
+Widget _buildArtworkItem(String imagePath) {
+  return Container(
+    margin: EdgeInsets.all(8.0),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(8.0),
+      child: Image.asset(
+        imagePath,
+        width: 150.0,
+        height: 150.0,
+        fit: BoxFit.fitHeight,
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   
 
 
   Widget _buildArtistHighlights(BuildContext context) {
   return Container(
-    height: 200.0,
-    width: 100.0,
+    height: 300.0,
+    width: 200.0,
     margin: EdgeInsets.symmetric(horizontal: 16.0),
     decoration: BoxDecoration(
       color: Color(0xFF50727B),
@@ -143,11 +159,11 @@ class HomeScreen extends StatelessWidget {
           );
         },
         child: Container(
-          width: 200.0,
-          height: 150.0, // Set maximum height
+          width: 300.0,
+          height: 250.0, // Set maximum height
           child: Image.asset(
             artist.photoPath,
-            fit: BoxFit.scaleDown, // Adjust the fit here
+            fit: BoxFit.cover // Adjust the fit here
           ),
         ),
       ),
@@ -209,6 +225,50 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class FeaturedArtworksScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Featured Artworks'),
+      ),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 8.0,
+        ),
+        itemCount: artworks.length, // Assuming 'artworks' contains all artworks
+        itemBuilder: (context, index) {
+          final Artwork artwork = artworks[index];
+
+          return GestureDetector(
+            onTap: () {
+              // Navigate to ArtworkDetailsScreen (assuming it exists)
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ArtworkDetailsScreen(artwork: artwork),
+                ),
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                image: DecorationImage(
+                  image: AssetImage(artwork.imagePath),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // You can customize the child widget as needed
             ),
           );
         },

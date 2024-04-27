@@ -11,19 +11,19 @@ final List<Artwork> artworks = [
   Artwork(
     name: 'Girl Before a Mirror',
     imagePath: 'assets/images/picaso1.jpg',
-    artistName: '',
+    artistName: 'Picasso',
     category: 'Painting',
   ),
     Artwork(
     name: 'The Weeping Woman',
     imagePath: 'assets/images/picaso2.jpg',
-    artistName: '',
+    artistName: 'Picasso',
     category: 'Painting',
   ),
     Artwork(
     name: 'Weird Guy',
     imagePath: 'assets/images/picaso3.png',
-    artistName: '',
+    artistName: 'Picasso',
     category: 'Painting',
   ),
   Artwork(
@@ -63,7 +63,7 @@ final List<Artwork> artworks = [
     category: 'Painting',
   ),
    Artwork(
-    name: 'Photo 1',
+    name: 'YellowStone',
     imagePath: 'assets/images/adams1.jpg',
     artistName: 'Adams',
     category: 'Photography',
@@ -99,21 +99,21 @@ final List<Artwork> artworks = [
     category: 'Photography',
   ),
     Artwork(
-    name: 'Photo 6',
-    imagePath: 'assets/images/mccurry3.jpg',
-    artistName: 'McCurry',
+    name: 'Bird Ceramic',
+    imagePath: 'assets/images/pablo_ceramic.jpg',
+    artistName: 'picaso',
+    category: 'Sculpture',
+  ),
+    Artwork(
+    name: 'Fish Teapot',
+    imagePath: 'assets/images/pablo_ceramic2.jpg',
+    artistName: 'picaso',
     category: 'Sculpture',
   ),
     Artwork(
     name: 'Photo 6',
-    imagePath: 'assets/images/mccurry3.jpg',
-    artistName: 'McCurry',
-    category: 'Sculpture',
-  ),
-    Artwork(
-    name: 'Photo 6',
-    imagePath: 'assets/images/mccurry3.jpg',
-    artistName: 'McCurry',
+    imagePath: 'assets/images/pablo_ceramic3.jpg',
+    artistName: 'picaso',
     category: 'Sculpture',
   ),
   // Add more artworks as needed

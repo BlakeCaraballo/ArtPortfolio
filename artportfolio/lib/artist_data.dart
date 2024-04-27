@@ -10,9 +10,7 @@ final List<Artist> artists = [
       
     ],
     category: "paintings",
-    featuredArtwork: [
-
-    ]
+    
   ),
  
   // Add more artists as needed

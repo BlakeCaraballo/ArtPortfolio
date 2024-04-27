@@ -15,6 +15,14 @@ class ProfileScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
+              'Pablo Picasso',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Text(
               'Contact Information',
               style: TextStyle(
                 fontSize: 20.0,
@@ -23,13 +31,8 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            TextFormField(
+              initialValue: 'pablo.picasso@example.com',
+              readOnly: true,
               decoration: InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
@@ -37,17 +40,22 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             TextFormField(
+              initialValue: '+1234567890',
+              readOnly: true,
               decoration: InputDecoration(
                 labelText: 'Phone',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Handle saving profile information
-              },
-              child: Text('Save'),
+            SizedBox(height: 10.0),
+            TextFormField(
+              initialValue: '123 Main Street, City, Country',
+              readOnly: true,
+              maxLines: 3,
+              decoration: InputDecoration(
+                labelText: 'Mailing Address',
+                border: OutlineInputBorder(),
+              ),
             ),
           ],
         ),
